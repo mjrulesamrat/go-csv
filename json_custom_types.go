@@ -29,5 +29,12 @@ func main() {
 		Fruits : []string{"Banana", "Apple", "lichi"},
 	}
 	res2B, _ := json.Marshal(res2)
-	fmt.Println(string(res2B))	
+	fmt.Println(string(res2B))
+
+	// decoding JSON into custom data types
+	str := `{"page": 1, "fruits": ["apple", "peach"]}`
+	res := Response2{}
+	json.Unmarshal([]byte(str), &res)
+	fmt.Println(res)
+	fmt.Println(res.Fruits[0])
 }
